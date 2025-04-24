@@ -16,7 +16,7 @@ CHAIN_ID = 130
 MAX_RETRIES = 5
 RETRY_DELAY = 3
 GAS_WAIT_INTERVAL = 5  # Seconds between fee checks
-PRIVATE_KEY = ""  # ⚠️ Use with caution
+PRIVATE_KEY = "e4e24d8d1f825f5e7783200f40d716472b2426e6f8828bad47d6627df9348207"  # ?? Use with caution
 
 # Get user-defined max transaction fee in ETH
 def get_max_transaction_fee_eth():
@@ -34,7 +34,7 @@ def wait_for_transaction_fee_limit(gas_limit, max_fee_eth):
         estimated_fee_eth = Web3.from_wei(gas_price * gas_limit, 'ether')
         if estimated_fee_eth <= max_fee_eth:
             return gas_price
-        print(f"⚠️ Estimated fee {estimated_fee_eth:.10f} ETH too high (max {max_fee_eth} ETH). Waiting...")
+        print(f"âŒ Estimated fee {estimated_fee_eth:.10f} ETH too high (max {max_fee_eth} ETH). Waiting...")
         time.sleep(GAS_WAIT_INTERVAL)
 
 # Send ETH transaction
@@ -69,7 +69,7 @@ def send_eth_transaction_to_wallet(private_key, amount, to_address, max_fee_eth)
             signed_tx = web3.eth.account.sign_transaction(tx, private_key)
             tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
 
-            print(f"✅ Sent {amount} ETH to {to_address}. Tx Hash: {web3.to_hex(tx_hash)}")
+            print(f"âœ… Sent {amount} ETH to {to_address}. Tx Hash: {web3.to_hex(tx_hash)}")
             return True
 
         except requests.exceptions.HTTPError as e:
@@ -79,7 +79,7 @@ def send_eth_transaction_to_wallet(private_key, amount, to_address, max_fee_eth)
             if attempt < MAX_RETRIES - 1:
                 time.sleep(RETRY_DELAY)
             else:
-                print("❌ Transaction failed after maximum retries.")
+                print("âŒ Transaction failed after maximum retries.")
     return False
 
 # Load wallet addresses
@@ -94,7 +94,7 @@ def process_wallets(amount, max_fee_eth):
     print(f"Sender address: {sender_address}\n")
 
     for wallet_number, to_address in enumerate(wallets, start=1):
-        print(f"🔗 Sending to wallet {wallet_number}: {to_address}")
+        print(f"ðŸ” Sending to wallet {wallet_number}: {to_address}")
         send_eth_transaction_to_wallet(PRIVATE_KEY, amount, to_address, max_fee_eth)
         time.sleep(3)
 
