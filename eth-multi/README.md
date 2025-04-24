@@ -14,7 +14,7 @@ cd eth-multi
 ```
 
 ```
-python3 multi2.py
+python3 multi3.py
 ```
 #select 3, paste wallet address, type 0
 Save private keys in keys.txt, one per line. 
