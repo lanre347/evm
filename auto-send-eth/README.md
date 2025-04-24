@@ -18,6 +18,6 @@ nano bot2.py
 ```
 create screen and run:
 ```
-python3 bot2.py
+python3 bot3.py
 ```
 
