@@ -16,7 +16,7 @@ CHAIN_ID = 130
 MAX_RETRIES = 5
 RETRY_DELAY = 3
 GAS_WAIT_INTERVAL = 5  # Seconds between fee checks
-PRIVATE_KEY = "e4e24d8d1f825f5e7783200f40d716472b2426e6f8828bad47d6627df9348207"  # ?? Use with caution
+PRIVATE_KEY = ""  # ?? Use with caution
 
 # Get user-defined max transaction fee in ETH
 def get_max_transaction_fee_eth():
